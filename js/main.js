@@ -44,7 +44,7 @@ const sectionInfo = {
 }
 
 let pageSwitch = (section) => {
-    $("#phpContainer").load(`../includes/${section}.php`, function(response, status, xhr) {
+    $("#htmlContainer").load(`../includes/${section}.html`, function(response, status, xhr) {
         // open if successfully loads page content
         if (status == "success") {
             let transitionColor = document.querySelector("#transitionColor")
@@ -121,43 +121,33 @@ document.addEventListener("click", function(e){
 
     if (target){
         let page = target.dataset.page;
-        // console.log(page);
 
         if (page){
-            $.ajax({
-                type: "POST",
-                url: "../includes/php/update.php",
-                data: {
-                    entryPage: page
-                },
-                dataType: "JSON",
-                success: function (dataResult) {
-                    var dataResult = JSON.parse(dataResult);
-                    if(dataResult.statusCode==200){
-                        alert("Success");
+            fetch('../data/design.json')
+            .then(response => response.json())
+            .then(json => {
+                Object.entries(json).forEach((entry) => {
+                    const [key, value] = entry;
+                    // console.log(value.title);
+                    if (key == page){
+                        const display = document.querySelector("#web>section>article");
+                        display.innerHTML = `
+                        <h3>${value.title}</h3>
+                        <div class='mobileHide' id='webGallery'>
+                            <div class='galleryButton activeButton' style='background-image: url(../img/web/${key}/thumbs/01.jpg)'></div>
+                            <div class='galleryButton' style='background-image: url(../img/web/${key}/thumbs/01.jpg)'></div>
+                        </div>
+                        <img id='focusImage' src='../img/web/${key}/01.jpg' alt='Image gallery display'>
+                        <ul>${value.roles}</ul>
+                        `;
                     }
-                    else if(dataResult.statusCode==201){
-                        alert("Failed to fetch page");
-                    }
-                },
-                error: function () {
-                    /* If php does not work: kick a generic error */
-                    alert("Somehow didn't fucking work")
-                }
-            });
-        }else{
-            alert("Element does not have a valid page attached to it");
+                });
+            })
+            .catch(error => {
+                alert(`Failed to fetch data: ${error}`);
+            }); 
         }
     }
-
-        // $("#web>section>article").load("../includes/web/" + data, function(response, status, xhr) {
-        //     if (status == "error") {
-        //         var msg = "Sorry but there was an error: ";
-        //         alert(msg + xhr.status + " " + xhr.statusText);
-        //     }
-        //     // new gallery generator needs to work through JS
-        // });
-    // }
 })
 
 //Change focus image
