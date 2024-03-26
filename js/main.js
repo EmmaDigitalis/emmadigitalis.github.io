@@ -44,7 +44,7 @@ const sectionInfo = {
 }
 
 let pageSwitch = (section) => {
-    $("#phpContainer").load(`../includes/${section}.php`, function(response, status, xhr) {
+    $("#phpContainer").load(`../includes/${section}.html`, function(response, status, xhr) {
         // open if successfully loads page content
         if (status == "success") {
             let transitionColor = document.querySelector("#transitionColor")
@@ -117,38 +117,38 @@ document.querySelectorAll("#popout>section").forEach((elem) => elem.addEventList
 
 //Change Works Content
 document.addEventListener("click", function(e){
-    const target = e.target.closest(".workElement");
+    // const target = e.target.closest(".workElement");
 
-    if (target){
-        let page = target.dataset.page;
-        // console.log(page);
+    // if (target){
+    //     let page = target.dataset.page;
+    //     // console.log(page);
 
-        if (page){
-            $.ajax({
-                type: "POST",
-                url: "../includes/php/update.php",
-                data: {
-                    entryPage: page
-                },
-                dataType: "JSON",
-                success: function (dataResult) {
-                    var dataResult = JSON.parse(dataResult);
-                    if(dataResult.statusCode==200){
-                        alert("Success");
-                    }
-                    else if(dataResult.statusCode==201){
-                        alert("Failed to fetch page");
-                    }
-                },
-                error: function () {
-                    /* If php does not work: kick a generic error */
-                    alert("Somehow didn't fucking work")
-                }
-            });
-        }else{
-            alert("Element does not have a valid page attached to it");
-        }
-    }
+    //     if (page){
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "../includes/php/update.php",
+    //             data: {
+    //                 entryPage: page
+    //             },
+    //             dataType: "JSON",
+    //             success: function (dataResult) {
+    //                 var dataResult = JSON.parse(dataResult);
+    //                 if(dataResult.statusCode==200){
+    //                     alert("Success");
+    //                 }
+    //                 else if(dataResult.statusCode==201){
+    //                     alert("Failed to fetch page");
+    //                 }
+    //             },
+    //             error: function () {
+    //                 /* If php does not work: kick a generic error */
+    //                 alert("Somehow didn't fucking work")
+    //             }
+    //         });
+    //     }else{
+    //         alert("Element does not have a valid page attached to it");
+    //     }
+    // }
 
         // $("#web>section>article").load("../includes/web/" + data, function(response, status, xhr) {
         //     if (status == "error") {
