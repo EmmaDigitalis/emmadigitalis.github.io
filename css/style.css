@@ -399,7 +399,7 @@ body.active #popout>section{
     position: absolute;
 }
 
-#popout>section>#phpContainer {
+#popout>section>#htmlContainer {
     padding: 0 64px;
 }
 
@@ -427,7 +427,7 @@ footer {
     min-height: 96px;
 }
 
-#phpContainer>div>header{
+#htmlContainer>div>header{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -440,7 +440,7 @@ footer {
     font-weight: 900;
 }
 
-#phpContainer>div{
+#htmlContainer>div{
     width: 100%;
     height: 100%;
     display: flex;
@@ -451,7 +451,7 @@ footer {
     padding: 24px;
 }
 
-#phpContainer>div>section {
+#htmlContainer>div>section {
     width: 80%;
     min-width: 700px;
     display: flex;

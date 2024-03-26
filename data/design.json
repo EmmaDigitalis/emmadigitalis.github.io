@@ -4,41 +4,47 @@
         "desc":"A Game Project",
         "roles":["Programming (JavaScript)"],
         "href":"sub/bustout/",
-        "text":""
+        "text":"",
+        "imgs": 1
     },
     "challenge1":{
         "title":"Challenge 1",
         "desc":"Two Sides",
         "roles":["Design (Paper)", "Markup (HTML/CSS)"],
         "href":"https://u535834.gluweb.nl/challenge1/",
-        "text":""
+        "text":"",
+        "imgs": 1
     },
     "challenge2":{
         "title":"Challenge 2",
         "desc":"Online Magazine",
         "roles":["Communication", "Planning", "Research", "Writing", "Design (Illustrator/Paper)", "Markup (HMTL/CSS)", "Creation Login System (JS, PHP, SQL)"],
         "href":"https://u535834.gluweb.nl/challenge2",
-        "text":""
+        "text":"",
+        "imgs": 1
     },
     "connect":{
         "title":"Connect Danceshow",
         "desc":"Animated Backgrounds",
         "roles":["Graphic Designer", "Animator", "Livestream Technical Manager"],
         "href":"https://www.youtube.com/watch?v=nGy36zJeYoI",
-        "text":""
+        "text":"",
+        "imgs": 1
     },
     "learnapp":{
         "title":"U-Get-it",
         "desc":"Application",
         "roles":["Design (Adobe XD)", "Prototyping (Paper/Adobe XD)"],
         "href":"https://xd.adobe.com/view/f83505c9-2deb-4401-a7d3-5c4efcf13264-ad66/",
-        "text":""
+        "text":"",
+        "imgs": 1
     },
     "youtube":{
         "title":"YouTube",
         "desc":"Branding & Management",
         "roles":["Design Work (Illustrator)", "Research", "Film", "Script Writing", "Video Editing", "Animating (Adobe Animate)", "Content Creation"],
         "href":"https://www.youtube.com/channel/UCDU23JmzLaRLPWUmSbkIl3Q",
-        "text":""
+        "text":"",
+        "imgs": 1
     }
 }

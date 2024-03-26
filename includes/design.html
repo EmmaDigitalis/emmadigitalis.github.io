@@ -6,16 +6,43 @@
         <article></article>
         <div id="webNav">
             hello
-            <script>
-
-                console.log("hello")
-                // // add library
-                // document.addEventListener("load", function() {
-                //     alert("hello")
-                // })
             
-            </script>
         </div>
     </section>
 </div>
+
+<script>
+
+    const nav = document.getElementById("webNav");
+
+    function fetchPost() {
+        fetch('../data/design.json')
+            .then(response => response.json())
+            .then(json => {
+                
+                nav.innerHTML = "";
+
+                Object.entries(json).forEach((entry) => {
+                    const [key, value] = entry;
+                    // console.log(value.title);
+                    let el = `
+                    <div class='workElement' style='background-image: url(img/web/${key}/thumbs/01.jpg' data-page='${key}'>
+                        <div class='inner'>
+                            <h5> ${value.title} </h5>
+                            <p> ${value.desc} </p>
+                        </div>
+                    </div>
+                    `;
+                
+                    nav.innerHTML += el;
+                });
+            })
+            .catch(error => {
+                alert(`Failed to fetch data: ${error}`);
+            });
+    }
+
+    fetchPost();
+
+</script>
 
