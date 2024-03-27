@@ -119,6 +119,7 @@ document.querySelectorAll("#popout>section").forEach((elem) => elem.addEventList
 document.addEventListener("click", function(e){
     const workElement = e.target.closest(".workElement");
     const galleryButton = e.target.closest(".galleryButton");
+    const backButton = e.target.closest(".backButton");
 
     // if clicking a new work
     if (workElement){
@@ -133,6 +134,9 @@ document.addEventListener("click", function(e){
                     // console.log(value.title);
                     if (key == page){
                         const display = document.querySelector("#web>section>article");
+                        display.classList.remove("inactive");
+                        document.querySelector("#webNav").classList.add("inactive");
+
                         let gal = "";
                         for (img in value.imgs){
                             if (img != 0){
@@ -149,10 +153,13 @@ document.addEventListener("click", function(e){
                         }
 
                         display.innerHTML = `
-                        <h3>${value.title}</h3>
+                        <header>
+                            <button class="backButton">Back</button>
+                            <h3>${value.title}</h3>
+                        </header>
                         <div class="info">
                             <div class='gallery'>
-                                <img id='focusImage' src='../img/web/${key}/1.jpg' alt='Image gallery display' data-dir='${key}'>
+                                <img id='focusImage' src='../img/web/${key}/${value.imgs[0]}' alt='Image gallery display' data-dir='${key}'>
                                 <div class='mobileHide' id='webGallery'>
                                     ${gal}
                                 </div>
@@ -186,6 +193,16 @@ document.addEventListener("click", function(e){
 
         imagePanel.src = `../img/web/${dir}/${file}`;
         galleryButton.classList.add("activeButton");
+    }
+
+    if (backButton){
+        let clicked = backButton.dataset.page;
+        
+        const display = document.querySelector("#web>section>article");
+        display.classList.add("inactive");
+        document.querySelector("#webNav").classList.remove("inactive");
+
+        display.innerHTML = "";
     }
 })
 
@@ -242,32 +259,32 @@ document.querySelectorAll("nav>ul>li").forEach((elem) => elem.addEventListener("
 
 
 //FPS Counter
-const times = [];
-let fps;
+// const times = [];
+// let fps;
 
-function refreshLoop() {
-    window.requestAnimationFrame(() => {
-        const now = performance.now();
-        while (times.length > 0 && times[0] <= now - 1000) {
-            times.shift();
-        }
-        times.push(now);
-        fps = times.length;
+// function refreshLoop() {
+//     window.requestAnimationFrame(() => {
+//         const now = performance.now();
+//         while (times.length > 0 && times[0] <= now - 1000) {
+//             times.shift();
+//         }
+//         times.push(now);
+//         fps = times.length;
 
-        refreshLoop();
-    });
-}
+//         refreshLoop();
+//     });
+// }
 
-function frameDisplay() {
-    let fpsDisplay = document.getElementById("fpsCounter");
-    fpsDisplay.innerHTML = "FPS: " + String(fps);
-    setTimeout(function() {
-        frameDisplay();
-    }, 100);
+// function frameDisplay() {
+//     let fpsDisplay = document.getElementById("fpsCounter");
+//     fpsDisplay.innerHTML = "FPS: " + String(fps);
+//     setTimeout(function() {
+//         frameDisplay();
+//     }, 100);
 
-}
+// }
 
-refreshLoop();
-setTimeout(function() {
-    frameDisplay();
-}, 500);
+// refreshLoop();
+// setTimeout(function() {
+//     frameDisplay();
+// }, 500);
