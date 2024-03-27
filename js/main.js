@@ -74,7 +74,7 @@ let pageSwitch = (section) => {
         if (status == "error") {
             let msg = "An error has occurred: ";
             $("error").html(msg + xhr.status + " " + xhr.statusText);
-            alert(`${msg}${xhr.status} ${xhr.statusText}\r\nPlease send an email to emmadigitalis@gmail.com`)
+            alert(`${msg}${xhr.status} ${xhr.statusText}\r\nPlease send an email to Emmadigitalis@gmail.com`)
         }
     });
 }
@@ -117,10 +117,12 @@ document.querySelectorAll("#popout>section").forEach((elem) => elem.addEventList
 
 //Change Works Content
 document.addEventListener("click", function(e){
-    const target = e.target.closest(".workElement");
+    const workElement = e.target.closest(".workElement");
+    const galleryButton = e.target.closest(".galleryButton");
 
-    if (target){
-        let page = target.dataset.page;
+    // if clicking a new work
+    if (workElement){
+        let page = workElement.dataset.page;
 
         if (page){
             fetch('../data/design.json')
@@ -131,14 +133,36 @@ document.addEventListener("click", function(e){
                     // console.log(value.title);
                     if (key == page){
                         const display = document.querySelector("#web>section>article");
+                        let gal = "";
+                        for (img in value.imgs){
+                            if (img != 0){
+                                gal += `<div class='galleryButton' style='background-image: url(../img/web/${key}/thumbs/${value.imgs[img]})' data-file='${value.imgs[img]}'></div>`;    
+                            }else{
+                                gal += `<div class='galleryButton activeButton' style='background-image: url(../img/web/${key}/thumbs/${value.imgs[img]})' data-file='${value.imgs[img]}'></div>`;
+                            }
+                            
+                        }
+
+                        let rolelist = "";
+                        for (role in value.roles){
+                            rolelist += `<li>${value.roles[role]}</li>`;
+                        }
+
                         display.innerHTML = `
                         <h3>${value.title}</h3>
-                        <div class='mobileHide' id='webGallery'>
-                            <div class='galleryButton activeButton' style='background-image: url(../img/web/${key}/thumbs/01.jpg)'></div>
-                            <div class='galleryButton' style='background-image: url(../img/web/${key}/thumbs/01.jpg)'></div>
+                        <div class="info">
+                            <div class='gallery'>
+                                <img id='focusImage' src='../img/web/${key}/1.jpg' alt='Image gallery display' data-dir='${key}'>
+                                <div class='mobileHide' id='webGallery'>
+                                    ${gal}
+                                </div>
+                            </div>
+                            
+                            <h3>Roles:</h3>
+                            <ul>${rolelist}</ul>
+
+                            <a href="${value.href}">View</a>
                         </div>
-                        <img id='focusImage' src='../img/web/${key}/01.jpg' alt='Image gallery display'>
-                        <ul>${value.roles}</ul>
                         `;
                     }
                 });
@@ -148,22 +172,22 @@ document.addEventListener("click", function(e){
             }); 
         }
     }
-})
 
-//Change focus image
-function changeImage(folder, image, e) {
-    let imagePanel = document.getElementById("focusImage");
-    let classes = document.getElementsByClassName("activeButton");
+    // if clicking a gallery button
+    if (galleryButton){
+        let file = galleryButton.dataset.file;
+        let dir = document.querySelector("#focusImage").dataset.dir;
 
-    let i;
-    for (i = 0; i < classes.length; i++) {
-        classes[i].classList.remove("activeButton");
+        let imagePanel = document.getElementById("focusImage");
+        let act = document.querySelectorAll(".activeButton");
+        if (act.length > 0){
+            act.forEach((elem) => elem.classList.remove("activeButton"));
+        }
+
+        imagePanel.src = `../img/web/${dir}/${file}`;
+        galleryButton.classList.add("activeButton");
     }
-
-    imagePanel.src = "../img/web/" + folder + "/" + image;
-    e.target.classList.add("activeButton");
-
-}
+})
 
 $(window).on('load', function() {
     $("#load").hide();

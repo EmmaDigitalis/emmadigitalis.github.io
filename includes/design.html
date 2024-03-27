@@ -13,9 +13,10 @@
 
 <script>
 
-    const nav = document.getElementById("webNav");
 
     function fetchPost() {
+        const nav = document.getElementById("webNav");
+
         fetch('../data/design.json')
             .then(response => response.json())
             .then(json => {
@@ -26,7 +27,7 @@
                     const [key, value] = entry;
                     // console.log(value.title);
                     let el = `
-                    <div class='workElement' style='background-image: url(img/web/${key}/thumbs/01.jpg' data-page='${key}'>
+                    <div class='workElement' style='background-image: url(img/web/${key}/thumbs/1.jpg' data-page='${key}'>
                         <div class='inner'>
                             <h5> ${value.title} </h5>
                             <p> ${value.desc} </p>

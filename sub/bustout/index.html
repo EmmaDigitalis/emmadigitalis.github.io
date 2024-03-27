@@ -1,0 +1,56 @@
+<!doctype HTML>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="#" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interact</title>
+    <script src="../js/interact.js"></script>
+
+    <!--Fonts-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="background">
+        <div id="bgColor"></div>
+        <div id="bgPattern"></div>
+        <div id="bgGradient"></div>
+    </div>
+
+    <img id="img_ball" src="img/breakout/ball.png">
+    <img id="img_brick" src="img/breakout/brick.png">
+
+    <div class="container">
+
+        <a href="../../">Return</a>
+
+        <div id="game">
+            <canvas id="gameScreen" width="800" height="600"></canvas>
+        </div>
+
+        <div id="flex-break"></div>
+
+        <article>
+            <h2>Bustout</h2>
+            <p>
+                <b>Controls</b><br>
+                Left/Right: Move<br>
+                SPACEBAR: Start<br>
+                ESCAPE: Pause<br>
+                <br>
+                There's 5 levels total. Have fun!
+            
+            </p>
+        </article>
+    </div>
+
+    <script type="module" src="js/breakout.js"></script>
+
+</body>
+
+</html>
