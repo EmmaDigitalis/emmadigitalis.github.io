@@ -113,6 +113,32 @@ h5 {
     font-weight: 800;
 }
 
+button {
+    background: #454545;
+    color: white;
+    font-family: 'montserrat', sans-serif;
+    font-weight: 600;
+    border: none;
+    padding: 8px;
+    border-radius: 12px;
+    margin: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 2px #232323;
+    transform: translateY(0px);
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+    align-self: start;
+}
+
+button:hover {
+    box-shadow: 0 2px 0 2px #232323;
+    transform: translateY(2px);
+}
+
+button:active {
+    box-shadow: 0 1px 0 2px #232323;
+    transform: translateY(3px);
+}
+
 /*-------------------------------------------*/
 /*---------------Page Generals---------------*/
 /*-------------------------------------------*/
@@ -193,7 +219,7 @@ body.loading #background>#transitionColor {
 /*----------------------------------*/
 /*--------------Header--------------*/
 /*----------------------------------*/
-#inner>header{
+#inner>header {
     display: flex;
     flex-direction: row;
     transition: 0.2s ease;
@@ -202,11 +228,12 @@ body.loading #background>#transitionColor {
     gap: 16px;
 }
 
-#inner>figure, #inner>header>figure{
+#inner>figure,
+#inner>header>figure {
     transition: 10s 10s ease;
 }
 
-#inner>figure{
+#inner>figure {
     top: 0px;
     height: 200px;
     position: relative;
@@ -215,33 +242,37 @@ body.loading #background>#transitionColor {
     align-items: flex-end;
     overflow: hidden;
 }
-body.active #inner>figure{
+
+body.active #inner>figure {
     top: -200px;
     height: 0;
     transition: top 0.2s 0.5s ease, height 0.5s 0.5s ease;
 }
 
-#inner>header>figure{
+#inner>header>figure {
     width: 0;
     overflow: hidden;
     margin-left: 0;
     display: flex;
     align-items: flex-end;
 }
-body.active #inner>header>figure{
+
+body.active #inner>header>figure {
     margin-left: 64px;
     width: 24%;
     transition: 0.2s 0.5s ease;
 }
 
-#inner>figure>img, #inner>header>figure>img {
+#inner>figure>img,
+#inner>header>figure>img {
     max-width: 70vw;
     width: 1140px;
     filter: invert(0%) sepia(0%) hue-rotate(0deg) saturate(0);
     transition: 0.7s ease-in;
 }
 
-#inner>figure>figcaption, #inner>header>figure>figcaption {
+#inner>figure>figcaption,
+#inner>header>figure>figcaption {
     text-align: center;
 }
 
@@ -284,7 +315,7 @@ nav>ul>li {
 }
 
 
-body.active nav>ul>li{
+body.active nav>ul>li {
     height: 54px;
 }
 
@@ -351,6 +382,7 @@ nav>ul>li>* {
     nav>ul>li {
         width: 280px;
     }
+
     h3 {
         font-size: 32px
     }
@@ -360,7 +392,7 @@ nav>ul>li>* {
 /*-------------------------------------*/
 /*---------------Content---------------*/
 /*-------------------------------------*/
-#popout{
+#popout {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -381,7 +413,7 @@ nav>ul>li>* {
     position: relative;
 }
 
-body.active #popout>section{
+body.active #popout>section {
     height: calc(80vh - (5px * 2));
     min-height: 720px;
     transition: 0.7s ease-in;
@@ -409,8 +441,10 @@ body.active #popout>section{
     background-image: url(/img/content-border.png);
     transition: 10s 10s ease-in;
 }
-body.active #popout>.border, body.loading #popout>.border{
-    width: 100%; 
+
+body.active #popout>.border,
+body.loading #popout>.border {
+    width: 100%;
     /* background-color: ${sectionInfo[section].darkCol}; */
     transition: 0.4s ease-in;
 }
@@ -422,12 +456,13 @@ footer {
     justify-content: center;
 }
 
-#inner>header, #inner>footer{
+#inner>header,
+#inner>footer {
     height: 10vh;
     min-height: 96px;
 }
 
-#htmlContainer>div>header{
+#htmlContainer>div>header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -440,7 +475,7 @@ footer {
     font-weight: 900;
 }
 
-#htmlContainer>div{
+#htmlContainer>div {
     width: 100%;
     height: 100%;
     display: flex;
@@ -453,8 +488,8 @@ footer {
 
 #htmlContainer>div>section {
     width: 80%;
-    min-width: 700px;
     display: flex;
+    justify-content: center;
     padding: 0;
     position: relative;
     flex-grow: 1;
@@ -464,7 +499,7 @@ footer {
 /*-----------------------------------*/
 /*---------------About---------------*/
 /*-----------------------------------*/
-#about>header{
+#about>header {
     background-image: linear-gradient(0deg, #86dac6 30%, #4e9685 100%);
     box-shadow: 0px 8px 0px 0px #529787;
 }
@@ -521,7 +556,7 @@ footer {
     aspect-ratio: 1/1;
     list-style-type: none;
     border-radius: 22%;
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease;
     position: relative;
 }
@@ -534,12 +569,11 @@ footer {
 
 #about>section>article ul>li:hover {
     text-indent: 0;
-    transform: 
-        perspective(96px)
-        rotateX(14deg);
+    transform:
+        perspective(96px) rotateX(14deg);
 }
 
-#overlay{
+#overlay {
     width: 128px;
     min-height: 24px;
     display: flex;
@@ -554,7 +588,7 @@ footer {
     background: rgba(54, 54, 54, 0.4);
     color: white;
     backdrop-filter: blur(3px);
-    box-shadow: 0 2px 4px rgba( 54, 54, 54, 0.4); 
+    box-shadow: 0 2px 4px rgba(54, 54, 54, 0.4);
     transition: left 0.2s ease-in-out, top 0.2s ease-in-out, opacity 0.2s 0.2s ease;
     opacity: 0;
 }
@@ -576,7 +610,7 @@ footer {
     object-fit: cover;
 }
 
-#about .filler{
+#about .filler {
     width: 100%;
     height: 64px;
 }
@@ -585,14 +619,13 @@ footer {
 /*---------------web---------------*/
 /*-----------------------------------*/
 
-#web > header{
+#web>header {
     background-image: linear-gradient(0deg, #98a5d4 30%, #52608b 100%);
     box-shadow: 0px 8px 0px 0px #5b6791;
 }
 
 #web>section>#webNav {
     flex-grow: 1;
-    min-width: 240px;
     /* background: red; */
     padding: 32px 16px 0 16px;
     position: relative;
@@ -651,9 +684,8 @@ footer {
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-#web>section>article{
-    width: 960px;
-    padding-right: 16px;
+#web>section>article {
+    width: 100%;
     position: relative;
     flex-shrink: 0;
     display: flex;
@@ -661,7 +693,13 @@ footer {
     align-items: flex-start;
 }
 
-#web>section>article>h3{
+#web>section>article>header{
+    display: flex;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+#web>section>article>header>h3 {
     display: block;
     color: white;
     background-image: linear-gradient(0deg, #98a5d4 30%, #52608b 100%);
@@ -672,11 +710,10 @@ footer {
     font-size: 24px !important;
     font-weight: 600;
     font-style: italic;
-    writing-mode: vertical-rl;
-    text-orientation: sideways;
+    writing-mode: vertical-lr;
 }
 
-#web>section>article>.info{
+#web>section>article>.info {
     width: 100%;
     height: 100%;
     overflow-x: scroll;
@@ -687,7 +724,7 @@ footer {
 }
 
 
-#web>section>article>.info h3{
+#web>section>article>.info h3 {
     display: block;
     color: white;
     background-image: linear-gradient(0deg, #98a5d4 30%, #52608b 100%);
@@ -701,7 +738,7 @@ footer {
     font-style: italic;
 }
 
-#web>section>article>.info>.gallery{
+#web>section>article>.info>.gallery {
     width: 100%;
     display: flex;
     height: 70%;
@@ -710,6 +747,7 @@ footer {
 
 /* gallery specific */
 #web>section>article>.info>.gallery>img {
+    max-width: 80%;
     aspect-ratio: 16/9;
     object-fit: contain;
     object-position: center;
@@ -762,6 +800,10 @@ footer {
     top: 6px;
     box-shadow: 0px 2px 0px 0px;
     transition: top 0s, box-shadow 0s;
+}
+
+#web .inactive {
+    display: none !important;
 }
 
 .activeButton {
@@ -852,10 +894,38 @@ footer {
 /*-------------------------------------------*/
 /*----------------Responsive-----------------*/
 /*-------------------------------------------*/
-@media screen and (max-width: 600px) {
-    #innerContent {
+@media screen and (max-width: 800px) {
+    #htmlContainer{
+        padding: 0 24px !important; 
+    }
+    #htmlContainer>div{
+        padding: 0;
+    }
+    #htmlContainer>div>section{
         width: 100%;
     }
+
+    #about>section {
+        flex-direction: column-reverse;
+        min-width: 0px !important;
+        overflow: scroll !important;
+    }
+
+    #about>section>* {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+
+    #about>section>article ul {
+        padding: 12px 0;
+    }
+
+    #about>section>article ul>li {
+        width: 64px;
+        width: 64px;
+    }
+
 
     #bgPattern {
         display: none;
@@ -863,116 +933,63 @@ footer {
 
     nav>ul>li {
         width: 240px;
-        height: 46px;
+        height: 40px !important;
     }
 
     nav>ul>li>h3 {
         font-size: 26px;
     }
 
-    /*----------about----------*/
-    #about>#aboutRemainder>.left {
-        width: 100%;
-    }
-
-    #about>#aboutRemainder>.right {
-        display: none;
-    }
-
     /*---------------------------------*/
     /*--------------web--------------*/
     /*---------------------------------*/
-    #web>#webView {
-        flex-direction: column;
-        overflow-y: auto;
-        justify-content: flex-start;
-    }
-
-    #web>#webView>.webLeft,
-    #web>#webView>.webRight {
-        width: 100%;
-        height: auto;
-    }
-
-    #web>#webView>.webLeft {
-        justify-content: center;
-    }
-
-    #web>#webView>.webLeft>img {
-        max-height: 100%;
-    }
-
-    #web>#webNav {
-        position: fixed;
-        height: auto;
-    }
-
-    #web>#webNav>.workElement {
-        position: relative;
-        bottom: -32px;
-        width: 80px;
-        height: 160px;
-        border-radius: 24px 24px 0 0;
-    }
-
-    #web>#webNav>.workElement:hover {
-        bottom: -12px;
-        width: 80px;
-        height: 160px;
-        border-radius: 24px 24px 0 0;
-    }
-
-    #web>#webNav>.workElement>h5,
-    #web>#webNav>.workElement>p {
-        writing-mode: vertical-rl;
-        text-orientation: sideways;
-        float: right;
-        height: 100%;
-        justify-content: flex-start;
-        text-align: start;
-    }
-
-    #web>#webNav>.workElement>p {
-        margin-right: 4px;
-    }
-
-    #web>#webNav::-webkit-scrollbar {
-        display: none;
-    }
-
-    #web>#webView>.webRight>a>h3 {
-        font-size: 28px;
-    }
-
-    /*---------------------------------*/
-    /*-------------Connect-------------*/
-    /*---------------------------------*/
-    #connect {
+    #web > section > article{
         flex-direction: column;
     }
 
-    #connect>* {
+    #web > section > article > header{
+        height: auto;
+        margin-bottom: 14px;
         width: 100%;
     }
 
-    #socials>ul {
-        display: block;
-        overflow-x: auto;
+    #web > section > article > header > h3{
+        writing-mode: horizontal-tb;
+        height: auto;
+        width: 100%;
+        padding: 8px 16px;
+    }
+
+    #web>section>article>.info>.gallery {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #web>section>article>.info>.gallery>img {
+        width: 100%;
+        max-width: auto;
+        margin-bottom: 12px;
+    }
+
+    #web > section > article > .info > .gallery > #webGallery {
+        flex-direction: row;
+        align-items: flex-start;
+        height: 80px;
+        width: 100%;
         overflow-y: hidden;
-        padding: 0 16px;
-        white-space: nowrap;
+        overflow-x: scroll;
     }
 
-    #socials>ul>li {
-        width: 80%;
-        display: inline-block;
+    #web > section > article > .info > .gallery > #webGallery > .galleryButton{
+        height: 64px;
+        width: auto;
     }
 }
 
 
 
 /* Language Button */
-button.language{
+button.language {
     position: fixed;
     top: 0;
     right: 0;
