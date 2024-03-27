@@ -234,19 +234,19 @@ body.loading #background>#transitionColor {
 }
 
 #inner>figure {
+    height: 40vh;
     top: 0px;
-    height: 200px;
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
 }
 
-body.active #inner>figure {
-    top: -200px;
+body.active #inner>figure, body.loading #inner>figure {
+    opacity: 0;
     height: 0;
-    transition: top 0.2s 0.5s ease, height 0.5s 0.5s ease;
+    transition: opacity 0.7s ease, height 0.2s 0.5s ease;
 }
 
 #inner>header>figure {
@@ -257,16 +257,28 @@ body.active #inner>figure {
     align-items: flex-end;
 }
 
-body.active #inner>header>figure {
+body.active #inner>header>figure, body.loading #inner>header>figure {
     margin-left: 64px;
     width: 24%;
     transition: 0.2s 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#inner>figure>img,
-#inner>header>figure>img {
+#inner>figure>img {
     max-width: 70vw;
+    max-height: 40vh;
+    object-fit: contain;
     width: 1140px;
+    filter: invert(0%) sepia(0%) hue-rotate(0deg) saturate(0);
+    transition: 0.7s ease-in;
+}
+
+#inner>header>figure>img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     filter: invert(0%) sepia(0%) hue-rotate(0deg) saturate(0);
     transition: 0.7s ease-in;
 }
