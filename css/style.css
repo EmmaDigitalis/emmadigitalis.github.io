@@ -709,6 +709,7 @@ footer {
     display: flex;
     height: 100%;
     flex-shrink: 0;
+    min-width: 120px;
 }
 
 #web>section>article>header>h3 {
@@ -996,6 +997,7 @@ footer {
         height: 64px;
         width: auto;
     }
+    
 }
 
 

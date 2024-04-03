@@ -152,6 +152,11 @@ document.addEventListener("click", function(e){
                             rolelist += `<li>${value.roles[role]}</li>`;
                         }
 
+                        let link = "";
+                        if (value.href !== "") {
+                            link = `<a href="${value.href}">View</a>`;
+                        }
+
                         display.innerHTML = `
                         <header>
                             <button class="backButton">Back</button>
@@ -168,7 +173,7 @@ document.addEventListener("click", function(e){
                             <h3>Roles:</h3>
                             <ul>${rolelist}</ul>
 
-                            <a href="${value.href}">View</a>
+                            ${link}
                         </div>
                         `;
                     }

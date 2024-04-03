@@ -1,0 +1,628 @@
+/* generics */
+@font-face {
+    font-family: chinyen-hollow;
+    src: url(../fonts/chinyen-hollow.otf);
+}
+
+@font-face {
+    font-family: chinyen;
+    src: url(../fonts/chinyen.otf);
+}
+
+:root {
+    --theme-bg-primary: black;
+    --theme-bg-secondary: black;
+    --theme-fg-primary: black;
+    --theme-fg-secondary: black;
+    --theme-txt-primary: black;
+    --theme-bg-pattern: unset;
+    --theme-fg-pattern: unset;
+    --theme-font-h-primary: sans-serif;
+    --theme-font-p: monospace
+}
+
+* {
+    font-family: var(--theme-font-p);
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 150vh;
+}
+
+button {
+    padding: 12px 18px;
+    outline: unset;
+    border: unset;
+    background: var(--theme-fg-primary);
+    color: var(--theme-txt-primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(2px);
+    background: var(--theme-fg-secondary);
+}
+
+main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    transition: flex-shrink 0.2s ease;
+    overflow: hidden;
+}
+
+nav {
+    flex-shrink: 1;
+    min-width: 256px;
+    height: 100vh;
+    background: var(--theme-fg-primary);
+    padding-top: 48px;
+}
+
+ul {
+    padding-left: 32px;
+}
+
+li {
+    margin: 8px;
+    color: var(--theme-txt-primary);
+    font-size: 16px;
+}
+
+a {
+    text-decoration: unset;
+    color: var(--theme-txt-primary);
+    font-weight: 800;
+    transition: margin-left 0.2s ease;
+}
+
+li:hover>a {
+    margin-left: 8px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-family: var(--theme-font-h-primary);
+    color: var(--theme-fg-primary);
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 26px;
+    font-family: var(--theme-font-h-primary);
+    color: var(--theme-bg-primary);
+    text-shadow:
+        2px 2px 1px var(--theme-fg-primary),
+        -2px 2px 1px var(--theme-fg-primary),
+        -2px -2px 1px var(--theme-fg-primary),
+        2px -2px 1px var(--theme-fg-primary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* specifics */
+body>.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+main>.background,
+main>.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+main>.background {
+    background: var(--theme-bg-primary);
+    background: radial-gradient(at 25vw 60vh, var(--theme-bg-primary), var(--theme-bg-secondary));
+}
+
+.background>.bg-pattern,
+.background>.fg-pattern {
+    position: absolute;
+}
+
+.background>.bg-pattern {
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    transform: rotate(-8deg);
+    background-image: var(--theme-bg-pattern);
+    background-size: 100px;
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+}
+
+.background>.fg-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: var(--theme-fg-pattern);
+    mix-blend-mode: overlay;
+    opacity: 0.4;
+}
+
+.background>.side {
+    width: 96px;
+    height: 100vh;
+    background: url("../img/pattern-ace.png");
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    position: absolute;
+}
+
+.background>.side:nth-of-type(1) {
+    left: 0;
+}
+
+.background>.side:nth-of-type(2) {
+    right: 0;
+}
+
+/* 
+main>.content{
+    
+} */
+.content>.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.outerCard {
+    aspect-ratio: 7/5;
+    position: relative;
+    background: var(--theme-bg-primary);
+    box-shadow: 8px 8px 8px black;
+    padding: 4px;
+    border-radius: 32px;
+    border: 4px solid var(--theme-fg-primary);
+    transition: filter 0.2s ease;
+}
+
+.innerCard,
+.cardBack {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 24px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerCard {
+    border: 2px solid var(--theme-fg-primary);
+}
+
+.cardBack {
+    background: var(--theme-bg-primary);
+    background: radial-gradient(at left bottom, var(--theme-bg-primary), var(--theme-bg-secondary));
+    overflow: hidden;
+    filter: brightness(1);
+    transition: filter 0.2s ease;
+}
+
+.notImplemented {
+    filter: grayscale(1);
+}
+
+.cardBack {
+    cursor: pointer;
+}
+
+.cardBack::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: 1;
+    background-image: var(--theme-bg-pattern);
+    background-size: 80px;
+    mix-blend-mode: overlay;
+    opacity: 0.3;
+    transform: rotate(-80deg);
+}
+
+.cardBack:hover {
+    filter: brightness(1.4);
+}
+
+
+.outerCard.play {
+    height: 75%;
+    max-width: 90%;
+    margin-top: 24px;
+}
+
+.outerCard.play>.innerCard {
+    padding: 24px;
+}
+
+.outerCard.play>.innerCard>#playerContainer {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    transition: width 0.2 ease, height 0.2s ease;
+    position: relative;
+    box-shadow: 2px 2px 2px black;
+    flex-shrink: 0;
+}
+
+.outerCard.play.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    max-width: unset;
+    margin: unset;
+    padding: unset;
+    border: unset;
+    border-radius: unset;
+    background: black;
+}
+
+.outerCard.play.fullscreen h2 {
+    display: none;
+}
+
+.outerCard.play.fullscreen #playerContainer {
+    aspect-ratio: unset;
+    height: 100vh;
+}
+
+.outerCard.play.fullscreen>.innerCard {
+    border: unset;
+    padding: unset;
+}
+
+.outerCard.play.fullscreen #controls {
+    transition: opacity 1s 2s ease;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    background: rgba(0, 0, 0, 1.0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+.outerCard.play.fullscreen #controls:hover {
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+.outerCard.play>.innerCard>#playerContainer>#player-content,
+.outerCard.play>.innerCard>#playerContainer>#player-content>#rest-display {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.outerCard.play #thumb {
+    background-size: cover;
+    background-image: url('../img/0.jpg');
+    background-position: center;
+    box-shadow: inset 0 0 48px 48px rgba(0, 0, 0, 0.8);
+}
+
+#player-content {
+    position: relative;
+}
+#rest-display {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    top: 0;
+}
+#rest-display>.banner {
+    width: 100%;
+    background: var(--theme-fg-primary);
+    padding: 36px 0;
+    text-align: center;
+}
+#rest-display>.banner>h2 {
+    color: var(--theme-txt-primary);
+}
+
+#player {
+    width: 100%;
+    height: 100%;
+}
+
+.outerCard.play>.innerCard>h2 {
+    height: 100%;
+}
+
+.outerCard.play #controls {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px;
+    position: relative;
+}
+
+#controls .c {
+    position: relative;
+    height: 48px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0);
+    color: var(--theme-fg-primary);
+    font-size: 28px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    text-shadow: 2px 2px 1px black;
+    user-select: none;
+}
+
+#controls .c.play>i {
+    margin-left: 3px;
+}
+
+#controls .c>span {
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 800;
+    position: absolute;
+    left: 28px;
+    bottom: 6px;
+    border-radius: 50%;
+    padding: 1px;
+    line-height: 16px;
+    background: var(--theme-bg-primary);
+    user-select: none;
+}
+
+#controls .c:hover {
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--theme-fg-secondary);
+}
+
+#controls>#scrubber{
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    top: 0;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+#controls:hover>#scrubber {
+    opacity: 1;
+}
+
+#controls>#scrubber>#scrubberButton{
+    --size: 16px;
+    --progress: 0%;
+    position: absolute;
+    width: var(--size);
+    top: calc(-1 *  var(--size) / 3);
+    left: calc(var(--progress) - var(--size) / 4); 
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    background: var(--theme-fg-secondary);
+    box-shadow: 0 0 4px var(--theme-fg-primary);
+    cursor: pointer;
+}
+
+#controls>#scrubber>.loop-indicator{
+    --size: 8px;
+    position: absolute;
+    width: var(--size);
+    top: -10px;
+    aspect-ratio: 1/3;
+    background: var(--theme-txt-primary);
+    box-shadow: 0 0 4px var(--theme-fg-primary);
+    cursor: grab;
+}
+#controls>#scrubber>.loop-indicator.holding{
+    cursor: grabbing;
+}
+
+#controls>#scrubber>.loop-indicator.start{
+    --time: 0%;
+    left: calc(var(--time) - 2px); 
+}
+
+#controls>#scrubber>.loop-indicator.end{
+    --time: 100%;
+    left: calc(var(--time) + 2px); 
+}
+
+#optionContainer {
+    width: 100%;
+    min-height: 200px;
+    flex-grow: 1;
+    padding: 6px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow-x: scroll;
+}
+
+#optionContainer.fullscreen {
+    display: none;
+}
+
+#optionContainer>.outerCard {
+    height: 90%;
+    margin: auto;
+    text-indent: 1;
+    color: white;
+    transform: scaleX(1);
+}
+
+
+#optionContainer>.outerCard h2, #optionContainer>.outerCard h3{
+    user-select: none; 
+}
+
+#optionContainer>.outerCard h3 {
+    position: absolute;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.outerCard[data-active="false"] .innerCard {
+    display: none;
+}
+
+.outerCard[data-active="true"] .cardBack {
+    display: none;
+}
+
+#optionContainer>.outerCard h3:first-of-type {
+    top: 0;
+    left: 12px;
+}
+
+#optionContainer>.outerCard h3:last-of-type {
+    bottom: 0px;
+    right: 12px;
+    transform: rotate(180deg);
+}
+
+#optionContainer>.outerCard>.innerCard {
+    gap: 4px;
+    padding-top: 16px;
+}
+
+#optionContainer>.outerCard>.innerCard>.close {
+    position: absolute;
+    min-width: 32px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    top: -16px;
+    right: -16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-bg-primary);
+    border: 3px solid var(--theme-fg-primary);
+    color: var(--theme-fg-primary);
+    box-shadow: 3px 3px 3px black;
+    transition: border 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+#optionContainer>.outerCard>.innerCard>.close:hover {
+    border: 5px solid var(--theme-fg-secondary);
+    color: var(--theme-fg-secondary);
+}
+
+#optionContainer>.outerCard>.innerCard>.opt {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    padding: 4px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+#optionContainer>.outerCard>.innerCard>.opt>button:first-child{
+    border-bottom-left-radius: 20px;
+}
+
+#optionContainer>.outerCard>.innerCard>.opt>button:last-child{
+    border-bottom-right-radius: 20px;
+}
+
+.outerCard input[type="text"] {
+    width: 80%;
+}
+
+.outerCard.mirror .innerCard h2{
+    margin-bottom: 16px;
+}
+
+.outerCard.loop .opt>span{
+    flex: 0.8;
+    text-align: right;
+    margin-right: 4px;
+}
+.outerCard.loop .opt>input{
+    height: 24px;
+    width: 64px;
+}
+.outerCard.loop .opt>button{
+    padding: 12px 6px;
+    flex-grow: 1;
+}
+
+.outerCard.loop .opt:nth-of-type(2){
+    align-items: flex-end !important;
+}
+
+.outerCard.speed .opt{
+    padding: 0 !important;
+    gap: 0 !important;
+}
+.outerCard.speed .opt>.opt{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outerCard.speed .opt>span{
+    text-align: center;
+}
+.outerCard.speed .opt>.opt input, .outerCard.speed .opt>.opt select{
+    max-width: 48px;
+}
+.outerCard.speed .innerCard{
+    padding-top: 32px !important;
+}
+
+.opt.disabled{
+    pointer-events: none;
+    filter: grayscale(1) brightness(0.3);
+}
+
+
+
+button.tools {
+    border-radius: 12px 0 0 12px;
+    position: absolute;
+    bottom: 256px;
+    right: 0;
+}
+
+button.tools.fullscreen {
+    display: none;
+}
