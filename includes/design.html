@@ -27,7 +27,7 @@
                     const [key, value] = entry;
                     // console.log(value.title);
                     let el = `
-                    <div class='workElement' style='background-image: url(img/web/${key}/thumbs/1.jpg' data-page='${key}'>
+                    <div class='workElement' style='background-image: url(img/web/${key}/thumbs/${value.imgs[0]}' data-page='${key}'>
                         <div class='inner'>
                             <h5> ${value.title} </h5>
                             <p> ${value.desc} </p>

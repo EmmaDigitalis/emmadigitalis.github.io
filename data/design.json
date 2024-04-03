@@ -104,5 +104,102 @@
             "10.jpg",
             "11.jpg"
         ]
+    },
+    "chess":{
+        "title":"Chess",
+        "desc":"Soft Programming",
+        "roles":["Markup (HMTL/CSS)", "Programming (JavaScript)"],
+        "href":"sub/chess/",
+        "text":"",
+        "imgs": [
+           "chessboard.jpg"
+        ]
+    },
+    "stageverslag":{
+        "title":"Stage Verslag",
+        "desc":"Web & Write",
+        "roles":["Markup (HMTL/CSS)", "Programming (JavaScript)", "Text Writing", "Image Creation", "Photoshop", "Illustrator"],
+        "href":"https://github.com/EmmaDigitalis/stageverslag",
+        "text":"",
+        "imgs": [
+            "home.jpg",
+            "company.jpg",
+            "questions.jpg",
+            "ratings.jpg",
+            "reflections.jpg"
+        ]
+    },
+    "cyberbg":{
+        "title":"Cyber Background",
+        "desc":"Casual Design",
+        "roles":["Concept", "Design", "Adobe Illustrator"],
+        "href":"",
+        "text":"",
+        "imgs": [
+            "16-9@4k.jpg",
+            "backdrop-cyber.jpg"
+        ]
+    },
+    "dancepractice":{
+        "title":"Dance Practice App",
+        "desc": "Development w/ API",
+        "roles":["Concept", "Asset Creation", "Development & Markup"],
+        "href":"sub/dancepractice/",
+        "text":"",
+        "imgs": [
+            "practice-app.jpg"
+        ]
+    },
+    "gamemockup":{
+        "title":"Game Mockup",
+        "desc":"Art Design",
+        "roles":["Design", "Concept", "Asset Creation", "Affinity Designer"],
+        "href":"",
+        "text":"",
+        "imgs": [
+            "gameplay-mockup.jpg",
+            "char-player.jpg",
+            "TilesetBaseForest.jpg",
+            "tilePatterns.jpg"
+        ]
+    },
+    "pong":{
+        "title":"Pong Game",
+        "desc":"Game Programming",
+        "roles":["Development"],
+        "href":"sub/pong/",
+        "text":"",
+        "imgs": [
+            "pong.jpg"
+        ]
+    },
+    "schedule":{
+        "title":"Schedule Generator",
+        "desc":"Extensive Development",
+        "roles":["Concept", "Design", "Asset Creation", "Adobe Illustrator", "Programming (JavaScript)", "Markup (HMTL/CSS)"],
+        "href":"sub/schedule/editor.html",
+        "text":"",
+        "imgs": [
+            "main.jpg",
+            "pastel.jpg",
+            "dark.jpg",
+            "satellite.jpg",
+            "moon.jpg",
+            "editor.jpg"
+        ]
+    },
+    "solar-lunar":{
+        "title":"Solar & Lunar Logos",
+        "desc":"Design Commission",
+        "roles":["Concept", "Sketching", "Design", "Affinity Designer"],
+        "href":"",
+        "text":"",
+        "imgs": [
+            "solar1.jpg",
+            "solar2.jpg",
+            "lunar1.jpg",
+            "lunar2.jpg",
+            "sketches.jpg"
+        ]
     }
 }
